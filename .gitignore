@@ -1,0 +1,37 @@
+!data/placas.yaml
+!data/hyps/**
+!data/hyps/*.yaml
+
+data/
+# Saídas de treino e afins
+runs/
+outputs/
+checkpoints/
+wandb/
+*.cache
+
+# Pesos/modelos
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.engine
+*.trt
+
+# Arquivos grandes comuns
+*.zip
+*.7z
+*.rar
+*.mp4
+*.mov
+*.avi
+*.png
+*.jpg
+*.jpeg
+
+# Ambiente
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
