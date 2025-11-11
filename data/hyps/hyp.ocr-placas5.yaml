@@ -1,0 +1,41 @@
+# ==== Hiperparâmetros v5 (refino final de precisão) ====
+# Alvo: >70% Precision, >65% mAP50, OCR de placas (0–9, A–Z sem O)
+
+# ---- Otimizador / Scheduler ----
+lr0: 0.0010          # taxa inicial
+lrf: 0.00015         # decaimento lento (mantém aprendizado por mais tempo)
+momentum: 0.965      # mais inércia => menos oscilações
+weight_decay: 0.00045
+warmup_epochs: 5.0
+warmup_momentum: 0.85
+warmup_bias_lr: 0.08
+
+# ---- Perdas ----
+box: 8.5             # prioriza localização mais exata
+cls: 1.3             # reforça separação entre classes (discriminação)
+cls_pw: 1.0
+obj: 1.7             # aumenta recall de caracteres pequenos
+obj_pw: 1.0
+dfl: 1.7             # suaviza bordas de caixa
+iou_t: 0.35
+anchor_t: 4.5
+fl_gamma: 0.0
+
+# ---- Augmentação fotométrica ----
+hsv_h: 0.012
+hsv_s: 0.45
+hsv_v: 0.35
+
+# ---- Augmentação geométrica ----
+degrees: 1.2
+translate: 0.04
+scale: 0.45          # leve aumento de variação (melhor generalização)
+shear: 0.0
+perspective: 0.0005
+flipud: 0.0
+fliplr: 0.0
+
+# ---- Composições ----
+mosaic: 0.35
+mixup: 0.02
+copy_paste: 0.0

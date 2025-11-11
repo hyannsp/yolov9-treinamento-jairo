@@ -1,8 +1,4 @@
-!data/placas.yaml
-!data/hyps/**
-!data/hyps/*.yaml
-
-data/
+data/labels
 # Saídas de treino e afins
 runs/
 outputs/

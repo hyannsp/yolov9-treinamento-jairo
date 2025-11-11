@@ -1,0 +1,43 @@
+# OCR placas (0–9, A–Z sem O) — foco em +precisão com generalização
+# Ajustado para batch=10 e imgsz=704 (RTX 3050 6GB)
+
+# Otimizador / LR schedule
+lr0: 0.0015        # escalado p/ batch=10 (≈ 0.01*(10/64))
+lrf: 0.0003        # LR final bem baixo (cosine), ajuda a refinar sem overfit
+momentum: 0.95
+weight_decay: 0.00055
+warmup_epochs: 4.0
+warmup_momentum: 0.86
+warmup_bias_lr: 0.1
+
+# Pesos da perda
+box: 8.5
+cls: 1.1
+cls_pw: 1.0
+obj: 1.4
+obj_pw: 1.0
+dfl: 1.6
+iou_t: 0.30
+anchor_t: 5.0
+fl_gamma: 0.0
+
+# Augmentação fotométrica (leve)
+hsv_h: 0.015
+hsv_s: 0.5
+hsv_v: 0.3
+
+# Augmentação geométrica (placas quase retas)
+degrees: 1.5
+translate: 0.06
+scale: 0.35       # variação controlada p/ não deformar caracteres
+shear: 0.0
+perspective: 0.001
+
+# Espelhamentos
+flipud: 0.0
+fliplr: 0.0
+
+# Composições
+mosaic: 0.45      # um pouco mais alto p/ generalizar, sem artefatos excessivos
+mixup: 0.02
+copy_paste: 0.0
