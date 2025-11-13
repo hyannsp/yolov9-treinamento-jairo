@@ -1,0 +1,39 @@
+# ==== Hiperparâmetros v4 (refino final para >50% mAP) ====
+# Baseados no v3 + ajustes de estabilidade e recall
+
+# ---- Otimizador / scheduler ----
+lr0: 0.0010         # mais conservador (menor oscilação)
+lrf: 0.0002         # decaimento bem suave p/ 300+ epochs
+momentum: 0.96
+weight_decay: 0.0004
+warmup_epochs: 5.0
+warmup_momentum: 0.85
+warmup_bias_lr: 0.08
+
+# ---- Perdas ----
+box: 8.0
+cls: 1.2            # reforça discriminação de classes
+cls_pw: 1.0
+obj: 1.6            # aumenta recall (objetos pequenos)
+obj_pw: 1.0
+dfl: 1.7
+iou_t: 0.35
+anchor_t: 4.5
+fl_gamma: 0.0
+
+# ---- Augmentação ----
+hsv_h: 0.012
+hsv_s: 0.45
+hsv_v: 0.35
+degrees: 1.2
+translate: 0.05
+scale: 0.40
+shear: 0.0
+perspective: 0.0005
+flipud: 0.0
+fliplr: 0.0
+
+# ---- Composições ----
+mosaic: 0.35
+mixup: 0.03
+copy_paste: 0.0

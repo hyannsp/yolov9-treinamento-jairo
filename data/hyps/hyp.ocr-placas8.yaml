@@ -1,0 +1,36 @@
+# ---- Otimizador / warmup ----
+lr0: 0.0014          # ~0.01 * (batch/64); bom p/ batch 8–10
+lrf: 0.0002          # LR final bem baixo (refino longo com cos-lr)
+momentum: 0.95
+weight_decay: 0.0005
+warmup_epochs: 4.0
+warmup_momentum: 0.86
+warmup_bias_lr: 0.1
+
+# ---- Pesos da perda (caracteres pequenos) ----
+box: 9.0             # caixas mais sensíveis
+cls: 1.2             # separação alfabeto/dígitos
+cls_pw: 1.0
+obj: 1.5             # recall de objetos pequenos
+obj_pw: 1.0
+dfl: 1.6
+iou_t: 0.30
+anchor_t: 5.0
+fl_gamma: 0.0
+
+# ---- Augmentações (controladas p/ OCR) ----
+hsv_h: 0.015
+hsv_s: 0.50
+hsv_v: 0.30
+degrees: 1.0
+translate: 0.06
+scale: 0.35         # evita distorção de caracteres
+shear: 0.0
+perspective: 0.001
+flipud: 0.0
+fliplr: 0.0
+
+# ---- Composições ----
+mosaic: 0.50        # bom no começo; desligamos no fim via --close-mosaic
+mixup: 0.02
+copy_paste: 0.0

@@ -1,0 +1,41 @@
+# ==== Hiperparâmetros v6 (treino from scratch otimizado) ====
+# Alvo: >80% mAP50 em OCR de placas (0–9, A–Z sem O)
+
+# ---- Otimizador / Scheduler ----
+lr0: 0.012 # taxa inicial maior para aprendizado rápido
+lrf: 0.001 # decaimento leve para manter aprendizagem até o fim
+momentum: 0.90 # menor inércia -> converge mais cedo
+weight_decay: 0.0005
+warmup_epochs: 5.0
+warmup_momentum: 0.85
+warmup_bias_lr: 0.1
+
+# ---- Perdas ----
+box: 8.5
+cls: 1.3
+cls_pw: 1.0
+obj: 1.7
+obj_pw: 1.0
+dfl: 1.7
+iou_t: 0.35
+anchor_t: 4.5
+fl_gamma: 0.0
+
+# ---- Augmentação fotométrica ----
+hsv_h: 0.015
+hsv_s: 0.8
+hsv_v: 0.6
+
+# ---- Augmentação geométrica ----
+degrees: 5.0
+translate: 0.15
+scale: 0.8
+shear: 2.0
+perspective: 0.001
+flipud: 0.0
+fliplr: 0.5
+
+# ---- Composições ----
+mosaic: 1.0 # ativa fortemente o mosaic
+mixup: 0.12
+copy_paste: 0.0

@@ -1,0 +1,43 @@
+# ==== Hiperparâmetros v3 (refino) para OCR de placa ====
+# Baseados no seu v2 + foco extra em pequenos objetos e estabilidade
+
+# ---- Otimizador / agendamento ----
+lr0: 0.00120        # ligeiro - da estabilidade em 200+ épocas com batch 8
+lrf: 0.0003         # final menor -> decaimento mais longo (segura aprendizagem)
+momentum: 0.95      # + estabilidade
+weight_decay: 0.00045
+warmup_epochs: 4.0
+warmup_momentum: 0.86
+warmup_bias_lr: 0.1
+
+# ---- Pesos da perda ----
+box: 8.5            # + sensível p/ caixas pequenas
+cls: 1.1            # separa melhor 35 classes
+cls_pw: 1.0
+obj: 1.4            # + recall em objetos pequenos
+obj_pw: 1.0
+dfl: 1.6            # caixas mais “finas”
+iou_t: 0.30         # matching um pouco mais exigente
+anchor_t: 5.0
+fl_gamma: 0.0
+
+# ---- Augmentação fotométrica (leve e realista) ----
+hsv_h: 0.015
+hsv_s: 0.5
+hsv_v: 0.3
+
+# ---- Augmentação geométrica (controlada p/ texto) ----
+degrees: 1.5
+translate: 0.06
+scale: 0.35         # um pouco menos de variação que v2 (evita deformar chars)
+shear: 0.0
+perspective: 0.001
+
+# ---- Espelhamentos ----
+flipud: 0.0
+fliplr: 0.0
+
+# ---- Composições ----
+mosaic: 0.40        # ligeiro - vs v2 (menos artefato, mais fidelidade)
+mixup: 0.02         # muito baixo p/ não embaralhar texto
+copy_paste: 0.0
