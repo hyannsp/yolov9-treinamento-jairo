@@ -1,0 +1,13 @@
+# Track common model/binary files with Git LFS
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.tflite filter=lfs diff=lfs merge=lfs -text
+*.engine filter=lfs diff=lfs merge=lfs -text
+*.trt filter=lfs diff=lfs merge=lfs -text
+
+# Also track run-specific weights directories
+runs/**/weights/*.pt filter=lfs diff=lfs merge=lfs -text
+runs/**/weights/*.pth filter=lfs diff=lfs merge=lfs -text
+weights/*.pt filter=lfs diff=lfs merge=lfs -text
+weights/*.pth filter=lfs diff=lfs merge=lfs -text

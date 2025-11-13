@@ -1,0 +1,38 @@
+data/labels
+# Saídas de treino e afins
+outputs/
+checkpoints/
+wandb/
+*.cache
+
+# Pesos/modelos
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.engine
+*.trt
+
+# Arquivos grandes comuns
+*.zip
+*.7z
+*.rar
+*.mp4
+*.mov
+*.avi
+*.png
+*.jpg
+*.jpeg
+
+# Ambiente
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Allow committing tracked model weights (Git LFS will store the real content)
+!runs/**/weights/*.pt
+!runs/**/weights/*.pth
+!weights/*.pt
+!weights/*.pth
